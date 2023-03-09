@@ -1,0 +1,5 @@
+for region in $(aws ec2 describe-regions --query 'Regions[].{RegionName:RegionName}' --output text); do
+  echo "VPCs in $region region:"
+  aws ec2 describe-vpcs --region $region --output text --query 'Vpcs[*].{VpcId:VpcId,Name:Tags[?Key==`Name`].Value|[0],CidrBlock:CidrBlock}'
+  echo "-----------------------"
+done

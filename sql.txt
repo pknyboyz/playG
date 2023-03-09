@@ -1,0 +1,10 @@
+SELECT id, first_name, last_name, email, street_address_line_1, city, created_at, updated_at
+FROM public."user"
+WHERE first_name IS NOT NULL
+  AND last_name IS NOT NULL
+  AND email IS NOT NULL
+  AND street_address_line_1 IS NOT NULL
+  AND city IS NOT NULL
+  AND created_at IS NOT NULL
+  AND updated_at IS NOT NULL
+ORDER BY id DESC LIMIT 100;
